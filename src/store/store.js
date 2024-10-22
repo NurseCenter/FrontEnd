@@ -8,20 +8,24 @@ import navBarOptionsReducer from '@/store/navBarOptions';
 import locationsReducer from '@/store/locations';
 import modalStateReducer from '@/store/modalState';
 import modalsControlReducer from '@/store/modalsControl';
+import { encryptTransform } from '@/utils/crypto';
 
 const modalStatePersistConfig = {
   key: 'modalState',
   storage: localStorage,
+  transforms: [encryptTransform],
 };
 
 const navBarOptionsPersistConfig = {
   key: 'navBarOptions',
   storage: sessionStorage,
+  transforms: [encryptTransform],
 };
 
 const authPersistConfig = {
   key: 'auth',
   storage: localStorage,
+  transforms: [encryptTransform],
 };
 
 const persistedNavBarOptionsReducer = persistReducer(
